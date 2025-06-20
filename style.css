@@ -1,61 +1,90 @@
+/* リセットCSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 1rem;
-    background-color: #FFFFFF;
+/* 基本フォント */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
 
+/* 画像が可変になるようにしておく */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/* 共通タイトル */
+.section-title {
+    text-align: center;
+    margin-bottom: 48px;
+    font-weight: 700;
+    color: #505050;
+}
+
+.section-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.section-title h2 span {
+    margin: 0 20px;
+    font-size: 1.5rem;
+}
+
+.section-title h2 img {
+    height: 1.0em;
+    vertical-align: middle;
+}
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 .title {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 18px;
     font-weight: bold;
     align-self: center;
-    font-family: 'Noto Sans JP';
-    font-weight: 700;
-    font-style: normal;
     color: #505050;
+    padding: 12.2px 0;
 }
 
 .title img {
-    height: 1.5em;
-    /* テキストの高さに合わせて画像サイズを調整 */
-    vertical-align: middle;
-    margin-left: 5%;
+    margin-left: 99px;
 }
 
 .nav {
-    display: flex;
     justify-self: center;
     align-self: center;
-    gap: 1rem;
-    font-family: 'Noto Sans JP';
-    font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 60px;
+    display: flex;
+    gap: 10px;
     color: #505050;
 }
-
-@media screen and (max-width: 780px) {
-  .nav {
-    display: none;
-  }
-}
-
 
 .nav a {
     text-decoration: none;
     color: inherit;
 }
 
+@media screen and (max-width: 780px) {
+    .nav {
+        display: none;
+    }
+}
+
+/* ヒーローイメージ */
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -73,30 +102,12 @@
     grid-column: 1;
     grid-row: 2;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.5rem;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.6);
-    /* 白を60%の透明度で */
-}
-
-@media screen and (max-width: 780px) {
-  .cell-3 {
-    grid-column: 1;
-    grid-row: 3;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.6);
-    /* 白を60%の透明度で */
-  }
 }
 
 .hero-text {
@@ -104,9 +115,7 @@
     flex-direction: column;
     font-weight: bold;
     align-self: center;
-    font-family: 'Noto Sans JP';
     font-weight: 700;
-    font-style: normal;
 
 }
 
@@ -121,10 +130,26 @@
     color: #0D96A0;
 }
 
+@media screen and (max-width: 780px) {
+    .cell-3 {
+        grid-column: 1;
+        grid-row: 3;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.6);
+        /* 白を60%の透明度で */
+    }
+}
+
+/* コンセプト */
 .concept {
     text-align: center;
-    font-family: 'Noto Sans JP';
-    margin: 100px 50px 100px 50px;
+    margin: 60px;
     position: relative;
 }
 
@@ -148,156 +173,78 @@
     height: auto;
 }
 
-.features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 2fr 2fr 2fr;
-    grid-template-areas:
-        "title title"
-        "item1 item2"
-        "item3 item4"
-        "item5 item6";
-    width: 100%;
-    margin-bottom: 0 auto;
-    padding: 50px;
+/* 強み */
+.features-sec {
+    padding: 50px 0;
     background-color: rgba(13, 150, 160, 0.12);
-    height: auto;
-    row-gap: 40px;
-    align-self: center;
-    font-family: 'Noto Sans JP';
-    line-height: 2;
-    font-style: normal;
+}
+
+.inner {
+    /* 1080カンプで、左右が100なので、コンテンツ幅は880になるという考え方 */
+    max-width: 920px;
+    /* 880 + 左右20px を足して920 */
+    padding: 0 20px;
+    /* さらに、スマホの余白である左右20を最初から入れておく。こうするとスマホで新たに余白を設定する必要がないし、画面を縮めた際にも余白が常にある */
+    margin: 0 auto;
+}
+
+.inner h3 {
     color: #505050;
+    margin-bottom: 19px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.inner p {
+    font-size: 18px;
+    line-height: 33px;
+    color: #505050;
+}
+
+.feature-item-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.feature-item-wrapper.reverse {
+    /* 反対になるセクションにだけ、reverseクラスを付けている。〇番目の指定でも良い */
+    flex-direction: row;
+}
+
+.feature-item-image {
+    /* 画像ボックスの共通CSS */
+    flex-basis: 50%;
+}
+
+.feature-item-text {
+    /* テキストボックスの共通CSS */
+    flex-basis: calc(50% - 45px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media screen and (max-width: 780px) {
-    .features {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "title"
-            "item2"
-            "item1"
-            "item3"
-            "item4"
-            "item6"
-            "item5";
-        padding: 30px 20px;
-        row-gap: 30px;
+    .feature-item-wrapper {
+        /* blockにすることで、flex関連のCSSはすべて無効になる */
+        display: block;
+        margin-bottom: 40px;
     }
 }
 
-.section-title {
-    grid-area: title;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-family: 'Noto Sans JP';
-    color: #505050;
-}
-
-
-.section-title h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-}
-
-.section-title h2 span {
-    margin: 0 20px;
-    font-size: 1.5rem;
-}
-
-.section-title h2 img {
-    height: 1.0em;
-    vertical-align: middle;
-}
-
-.feature-item1 {
-    grid-area: item1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.feature-item1 h3 {
-    margin-bottom: 15px;
-}
-
-.feature-item2 {
-    grid-area: item2;
-}
-
-.feature-item2 img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.feature-item3 {
-    grid-area: item3;
-}
-
-.feature-item3 img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.feature-item4 {
-    grid-area: item4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.feature-item4 h3 {
-    margin-bottom: 15px;
-}
-
-.feature-item5 {
-    grid-area: item5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.feature-item5 h3 {
-    margin-bottom: 15px;
-}
-
-.feature-item6 {
-    grid-area: item6;
-}
-
-.feature-item6 img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
+/* サービス */
 .service {
     text-align: center;
-    font-family: 'Noto Sans JP';
     color: #505050;
     padding: 50px;
-}
-
-
-.service-title {
-    margin-bottom: 50px;
-
 }
 
 .service-descriptions {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
 }
 
@@ -306,12 +253,13 @@
     max-width: 100%;
     box-sizing: border-box;
     text-align: center;
+    line-height: 30px;
+    font-size: 17px;
 }
 
 .service-description h3 {
-    margin: 20px 0;
-
-
+    margin-top: 19px;
+    margin-bottom: 8px;
 }
 
 .service-description img {
@@ -328,24 +276,25 @@
 @media screen and (max-width: 780px) {
     .service-descriptions {
         flex-direction: column;
-        align-items: center; /* 中央揃え（任意） */
+        align-items: center;
+        /* 中央揃え（任意） */
     }
 
-    .service-descriptions h3{
+    .service-descriptions h3 {
         margin-top: 30px;
     }
 
     .service-description {
         width: 100%;
-        max-width: 500px; /* 画面に対してちょうどよく表示させたい場合は調整可能 */
+        max-width: 500px;
+        /* 画面に対してちょうどよく表示させたい場合は調整可能 */
         margin-top: 30px;
     }
 }
 
-
+/* お知らせ */
 .news-section {
     text-align: center;
-    font-family: 'Noto Sans JP';
     color: #505050;
     padding: 50px;
     background-color: rgba(13, 150, 160, 0.12);
@@ -362,8 +311,6 @@
     gap: 12px;
 }
 
-
-
 /* 各行（お知らせ1件分） */
 .news-item {
     display: flex;
@@ -375,8 +322,8 @@
     border-bottom: 1px solid #707070;
 }
 
-@media screen and (max-width:780px){
-    .news-item{
+@media screen and (max-width:780px) {
+    .news-item {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -388,11 +335,12 @@
     min-width: 100px;
 }
 
-.news-title {
+.news-item .news-title {
     font-weight: bold;
     min-width: 200px;
     text-align: left;
     color: #0D96A0;
+    margin: 0;
 }
 
 .news-des {
@@ -400,23 +348,28 @@
     text-align: left;
 }
 
+/* アクセス */
 .access-section {
-    margin: 50px;
+    margin-top: 63px;
+    margin-bottom: 70px;
 }
 
-/* アクセスのグリッド */
-.access-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* 左右半分ずつ */
-    gap: 20px;
-    align-items: start;
+.access-container {
+    display: flex;
+    gap: 46px;
+    align-items: stretch;
+}
+
+.access-map,
+.access-info {
+    flex: 1;
 }
 
 /* 地図エリア */
 .access-map iframe {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    min-height: 300px;
     border: 0;
 }
 
@@ -425,105 +378,121 @@
     font-size: 16px;
     line-height: 2.5;
     color: #333;
-    margin-left: 20px;
+}
+
+.access-info p {
+    margin-bottom: 15px;
 }
 
 .access-info span {
-    font-size: 20px;
+    font-size: 25px;
     color: #0D96A0;
     font-weight: bold;
 }
 
 .divider {
-    margin: 10px 10vw 10px 0;
+    margin: 10px 0;
 }
 
+/* お問い合わせ */
 .contact-section {
     text-align: center;
     background-color: rgba(13, 150, 160, 0.12);
     padding: 50px;
 }
 
-.contact-des{
+.contact-des {
     margin-bottom: 20px;
     line-height: 2;
+    font-size: 17px;
 }
 
-.contact-section label{
+/* .contact-section label {
     margin-right: 20px;
-}
+
+} */
 
 .form-group {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .form-group label {
-    width: 120px; /* ラベルの幅固定 */
-    font-weight: bold;
-  }
-
-  .form-group input,
-  .form-group textarea {
-   /* display: flex;
-   align-items: center; */
-    padding: 8px;
-    font-size: 16px;
-    width: 50%;
-
-  }
-
-  textarea {
-    height: 80px;
-  }
-
-  button {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-
-.footer{
-    background-color: #505050;
-    color: #FFFFFF;
-    padding: 30px;
+    margin-bottom: 30px;
 }
 
-.footer-list{
+.form-group label {
+    width: 200px;
+    /* ラベルの幅固定 */
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+        color: #505050;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 8px;
+    width: 100%;
+    border: none;
+}
+
+textarea {
+    height: 300px;
+}
+
+.contact-section button {
+    background: #0D96A0;
+    border-radius: 10px;
+    color: #FFFFFF;
+    padding: 9px 73px;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* フッター */
+.footer {
+    background-color: #505050;
+    color: #FFFFFF;
+    padding: 66px 171px 73px 172px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-list {
     display: flex;
     flex-direction: row;
     list-style: none;
     justify-content: center;
+    margin-bottom: 21px;
+    gap: 14px;
+}
+
+
+
+.footer hr {
+    color: #FFFFFF;
+}
+
+.footer a {
     
-}
-
-.footer-list li{
-    margin-right: 15px;
-}
-
-.footer hr{
     color: #FFFFFF;
-    margin: 20px;
 }
 
-.footer a{
-    color: #FFFFFF;
-    margin-right: 10px;
-}
 .footer p {
     display: flex;
     justify-content: center;
-    margin: 10px 10px;
+    margin-top: 27px;
+    margin-bottom: 9px;
+    color: #FFFFFF;
+    font-size: 20px;
+    gap: 12px;
 }
 
-.contact-section button{
-
-background: #0D96A0;
-border-radius: 10px;
-color: #FFFFFF;
-width: 150px;
-
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px; /* 任意：余白が必要なら */
 }
